@@ -1,5 +1,5 @@
-import { Usuario } from '../domain/entities/usuario.entity';
-import { UsuarioDTO } from '../infraestructure/dto/usuarioDto';
+import { Usuario } from '../../domain/entities/usuario.entity';
+import { UsuarioDTO } from '../../infraestructure/dto/usuarioDto';
 
 export class UsuarioMapper {
   static toDomain(usuarioDto: UsuarioDTO): Usuario {

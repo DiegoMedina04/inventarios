@@ -9,7 +9,6 @@ export class UsuarioApi {
         'Pérez',
         'juan.perez@example.com',
         'password123',
-        'admin',
         true
       ),
       new Usuario(
@@ -18,7 +17,6 @@ export class UsuarioApi {
         'Gómez',
         'ana.gomez@example.com',
         'password456',
-        'usuario',
         true
       ),
       new Usuario(
@@ -27,7 +25,6 @@ export class UsuarioApi {
         'Martínez',
         'luis.martinez@example.com',
         'password789',
-        'usuario',
         false
       ),
       new Usuario(
@@ -36,7 +33,6 @@ export class UsuarioApi {
         'Sánchez',
         'carlos.sanchez@example.com',
         'password000',
-        'admin',
         true
       ),
       new Usuario(
@@ -45,7 +41,6 @@ export class UsuarioApi {
         'López',
         'maria.lopez@example.com',
         'password111',
-        'usuario',
         true
       ),
       new Usuario(
@@ -54,7 +49,6 @@ export class UsuarioApi {
         'Díaz',
         'jose.diaz@example.com',
         'password222',
-        'usuario',
         false
       ),
       new Usuario(
@@ -63,7 +57,6 @@ export class UsuarioApi {
         'Ramírez',
         'pedro.ramirez@example.com',
         'password333',
-        'admin',
         true
       ),
     ];

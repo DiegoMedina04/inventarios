@@ -9,9 +9,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UsuarioModule } from './feature/usuarios/usuario.module';
 import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
+import { HomeComponent } from './feature/home/home/home.component';
 
 @NgModule({
-  declarations: [AppComponent, SidebarComponent],
+  declarations: [AppComponent, SidebarComponent, HomeComponent],
   imports: [BrowserModule, AppRoutingModule, UsuarioModule],
   providers: [provideClientHydration(withEventReplay())],
   bootstrap: [AppComponent],
