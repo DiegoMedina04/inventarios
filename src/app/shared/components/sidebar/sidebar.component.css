@@ -36,3 +36,12 @@
   background-color: #c7c7c7;
   padding-left: 10px;
 }
+.sidebar-button{
+  color: #474747;
+  background-color: transparent;
+  border: none;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+}
+
