@@ -7,8 +7,8 @@ import { MatInputModule } from '@angular/material/input';
   selector: 'app-searchbar',
   standalone: true,
   templateUrl: './searchbar.component.html',
-  styleUrls: ['./searchbar.component.css'],  // Asegúrate de usar 'styleUrls' correctamente
-  imports: [MatFormFieldModule, MatIconModule, MatInputModule],  // Correcto para los componentes standalone
+  styleUrls: ['./searchbar.component.css'], 
+  imports: [MatFormFieldModule, MatIconModule, MatInputModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SearchbarComponent {}

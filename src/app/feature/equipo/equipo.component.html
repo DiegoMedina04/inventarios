@@ -1,64 +1,118 @@
-
-<h2>Equipos</h2>
-<table mat-table [dataSource]="dataSource" class=" demo-table">
-  <!-- Position Column -->
-  <ng-container matColumnDef="position">
-    <th mat-header-cell *matHeaderCellDef>No.</th>
-    <td mat-cell *matCellDef="let element">{{element.position}}</td>
-  </ng-container>
-
-  <!-- Name Column -->
-  <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef>Name</th>
-    <td mat-cell *matCellDef="let element">{{element.name}}</td>
-  </ng-container>
-
-  <!-- Weight Column -->
-  <ng-container matColumnDef="weight">
-    <th mat-header-cell *matHeaderCellDef>Weight</th>
-    <td mat-cell *matCellDef="let element">{{element.weight}}</td>
-  </ng-container>
-
-  <!-- Symbol Column -->
-  <ng-container matColumnDef="symbol">
-    <th mat-header-cell *matHeaderCellDef>Symbol</th>
-    <td mat-cell *matCellDef="let element">{{element.symbol}}</td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr
-      mat-row
-      (click)="clickedRows.add(row)"
-      [class.demo-row-is-clicked]="clickedRows.has(row)"
-      *matRowDef="let row; columns: displayedColumns;"
-  ></tr>
-</table>
-
 <div>
-  <h3>
-    Click Log
-  </h3>
+  <h2>Equipos</h2>
+  <table mat-table [dataSource]="dataSource" class="demo-table">
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>ID</th>
+      <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+    </ng-container>
+
+    <!-- Nombre Column -->
+    <ng-container matColumnDef="nombre">
+      <th mat-header-cell *matHeaderCellDef>Nombre</th>
+      <td mat-cell *matCellDef="let element">{{ element.nombre }}</td>
+    </ng-container>
+
+    <!-- Marca Column -->
+    <ng-container matColumnDef="marca">
+      <th mat-header-cell *matHeaderCellDef>Marca</th>
+      <td mat-cell *matCellDef="let element">{{ element.marca }}</td>
+    </ng-container>
+
+    <!-- Modelo Column -->
+    <ng-container matColumnDef="modelo">
+      <th mat-header-cell *matHeaderCellDef>Modelo</th>
+      <td mat-cell *matCellDef="let element">{{ element.modelo }}</td>
+    </ng-container>
+
+    <!-- Procesador Column -->
+    <ng-container matColumnDef="procesador">
+      <th mat-header-cell *matHeaderCellDef>Procesador</th>
+      <td mat-cell *matCellDef="let element">{{ element.procesador }}</td>
+    </ng-container>
+
+    <!-- Memoria Column -->
+    <ng-container matColumnDef="memoria">
+      <th mat-header-cell *matHeaderCellDef>Memoria</th>
+      <td mat-cell *matCellDef="let element">{{ element.memoria }}</td>
+    </ng-container>
+
+    <!-- Tipo Almacenamiento Column -->
+    <ng-container matColumnDef="tipoAlmacenamiento">
+      <th mat-header-cell *matHeaderCellDef>Tipo Almacenamiento</th>
+      <td mat-cell *matCellDef="let element">{{ element.tipoAlmacenamiento }}</td>
+    </ng-container>
+
+    <!-- Almacenamiento Column -->
+    <ng-container matColumnDef="almacenamiento">
+      <th mat-header-cell *matHeaderCellDef>Almacenamiento</th>
+      <td mat-cell *matCellDef="let element">{{ element.almacenamiento }}</td>
+    </ng-container>
+
+    <!-- Sistema Operativo Column -->
+    <ng-container matColumnDef="sistemaOperativo">
+      <th mat-header-cell *matHeaderCellDef>Sistema Operativo</th>
+      <td mat-cell *matCellDef="let element">{{ element.sistemaOperativo }}</td>
+    </ng-container>
+
+    <!-- Serial Column -->
+    <ng-container matColumnDef="serial">
+      <th mat-header-cell *matHeaderCellDef>Serial</th>
+      <td mat-cell *matCellDef="let element">{{ element.serial }}</td>
+    </ng-container>
+
+    <!-- Serial Empresa Column -->
+    <ng-container matColumnDef="serialEmpresa">
+      <th mat-header-cell *matHeaderCellDef>Serial Empresa</th>
+      <td mat-cell *matCellDef="let element">{{ element.serialEmpresa }}</td>
+    </ng-container>
+
+    <!-- Bateria Column -->
+    <ng-container matColumnDef="bateria">
+      <th mat-header-cell *matHeaderCellDef>Batería</th>
+      <td mat-cell *matCellDef="let element">{{ element.bateria }}</td>
+    </ng-container>
+
+    <!-- MAC Column -->
+    <ng-container matColumnDef="mac">
+      <th mat-header-cell *matHeaderCellDef>MAC</th>
+      <td mat-cell *matCellDef="let element">{{ element.mac }}</td>
+    </ng-container>
+
+    <!-- IPv4 Column -->
+    <ng-container matColumnDef="ipv4">
+      <th mat-header-cell *matHeaderCellDef>IPv4</th>
+      <td mat-cell *matCellDef="let element">{{ element.ipv4 }}</td>
+    </ng-container>
+
+    <!-- Nombre Logico Column -->
+    <ng-container matColumnDef="nombreLogico">
+      <th mat-header-cell *matHeaderCellDef>Nombre Lógico</th>
+      <td mat-cell *matCellDef="let element">{{ element.nombreLogico }}</td>
+    </ng-container>
+
+    <!-- Tipo Conexion Column -->
+    <ng-container matColumnDef="tipoConexion">
+      <th mat-header-cell *matHeaderCellDef>Tipo Conexión</th>
+      <td mat-cell *matCellDef="let element">{{ element.tipoConexion }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row (click)="clickedRows.add(row)" [class.demo-row-is-clicked]="clickedRows.has(row)"
+      *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
 </div>
 
-@if (!clickedRows.size) {
+<div>
+  <h3>Click Log</h3>
+</div>
+
+<div *ngIf="!clickedRows.size">
   <div>Clicked rows will be logged here</div>
-}
+</div>
 
 <ul>
-  @for (clickedRow of clickedRows; track clickedRow) {
-    <li>Clicked on {{clickedRow.name}}</li>
-  }
+  <li *ngFor="let clickedRow of clickedRows;">
+    Clicked on {{ clickedRow.nombre }}
+  </li>
 </ul>
-<div>
-    <h2>Equipos List</h2>
-    <ul>
-      equipos:
-  
-      <li *ngFor="let equipo of equipos">
-        <span>{{ equipo.nombre }} - {{ equipo.nombre }}</span>
-        <button (click)="createEquipo(equipo)">Edit</button>
-        <button (click)="deleteEquipo(equipo.id)">Delete</button>
-      </li>
-    </ul>
-  </div>
-  
