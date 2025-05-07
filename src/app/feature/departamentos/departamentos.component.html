@@ -1,0 +1,12 @@
+<div>
+  <h2>Departamentos List</h2>
+  <ul>
+    departamentos:
+
+    <li *ngFor="let departamento of departamentos">
+      <span>{{ departamento.nombre }} - {{ departamento.nombre }}</span>
+      <button (click)="createDepartamento(departamento)">Edit</button>
+      <button (click)="editDepartamento(departamento.id)">Delete</button>
+    </li>
+  </ul>
+</div>

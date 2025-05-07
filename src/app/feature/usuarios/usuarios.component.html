@@ -1,0 +1,12 @@
+<div>
+  <h2>Task List</h2>
+  <ul>
+    usuarios:
+
+    <li *ngFor="let usuario of usuarios">
+      <span>{{ usuario.nombre }} - {{ usuario.apellido }}</span>
+      <button (click)="createUsuario(usuario)">Edit</button>
+      <button (click)="deleteUsuario(usuario.id)">Delete</button>
+    </li>
+  </ul>
+</div>
