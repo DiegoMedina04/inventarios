@@ -13,8 +13,8 @@ import { HomeComponent } from './feature/home/home/home.component';
 import { SearchbarComponent } from './shared/components/searchbar/searchbar.component';
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, UsuarioModule, SidebarComponent, SearchbarComponent],
+  declarations: [AppComponent, HomeComponent],
+  imports: [BrowserModule, AppRoutingModule, UsuarioModule, SidebarComponent, SearchbarComponent ],
   providers: [provideClientHydration(withEventReplay())],
   bootstrap: [AppComponent],
 })
