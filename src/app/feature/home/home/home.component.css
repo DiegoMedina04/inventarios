@@ -1,0 +1,118 @@
+.bg-th { background-color: #FF8A65; }
+.bg-sag { background-color: #7986CB; }
+.bg-sst { background-color: #4DB6AC; }
+.bg-ge { background-color: #66BB6A; }
+.bg-ct { background-color: #FFD54F; }
+.bg-ds { background-color: #5C9CE6; }
+.bg-co { background-color: #E57FC8; }
+.bg-dt { background-color: #B16B42; }
+.bg-gc { background-color: #26E2B3; }
+.bg-cm { background-color: #FF9B42; }
+
+.titulo-contenedor .titulo{
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.subtitulo{
+    font-size: 18px;
+    font-weight: 400;
+    color: #666;
+} 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  .main-contenedor {
+    flex: 1;
+    padding: 30px;
+  }
+  .contenedor-cards {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: rgba(0, 0, 0, 0.05);
+    border: 1px solid #dddddd;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  }
+  
+  .card-icono {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    color: white;
+    font-weight: 600;
+  }
+  
+  .card-titulo {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  
+  .card-valor {
+    width: 100%;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid var(--light-gray);
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .stat-valor {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--primary);
+  }
+  
+  .stat-nombre {
+    font-size: 12px;
+    color: #999;
+  }
+  
+  .card-acciones {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+  }
+  
+  .btn {
+    padding: 8px 15px;
+    border-radius: 50px;
+    border: none;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+  }
