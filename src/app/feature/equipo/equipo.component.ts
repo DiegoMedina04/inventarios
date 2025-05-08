@@ -13,7 +13,6 @@ import { MatTableModule } from '@angular/material/table';
 })
 
 export class EquipoComponent implements OnInit {
-  // Columnas de la tabla
   displayedColumns: string[] = [
     'id',
     'nombre',
@@ -24,18 +23,18 @@ export class EquipoComponent implements OnInit {
     'tipoAlmacenamiento',
     'almacenamiento',
     'sistemaOperativo',
-    'serial',
-    'serialEmpresa',
-    'bateria',
-    'mac',
-    'ipv4',
-    'nombreLogico',
-    'tipoConexion'
+    
   ];
+  // 'serial',
+  //   'serialEmpresa',
+  //   'bateria',
+  //   'mac',
+  //   'ipv4',
+  //   'nombreLogico',
+  //   'tipoConexion'
   
-  // Datos para la tabla
   equipos: Equipo[] = [];
-  dataSource = this.equipos;  // Asignamos los equipos a la fuente de datos
+  dataSource = this.equipos; 
   
   clickedRows = new Set<Equipo>();
   

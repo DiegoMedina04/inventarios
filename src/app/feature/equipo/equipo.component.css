@@ -2,11 +2,15 @@
   display: block;
   width: 96%;
 }
+
 .demo-table {
   width: 100%;
+  max-width: 100%;
   border-radius: 20px;
   box-shadow: 0px 2px 10px 2px rgba(0, 0, 0, 0.094);
-    overflow: hidden;
+  table-layout: fixed;
+  border-collapse: collapse;
+  overflow: hidden;
 }
 
 .mat-mdc-row .mat-mdc-cell {
@@ -19,6 +23,43 @@
   border-color: currentColor;
 }
 
-/* .demo-row-is-clicked {
+.demo-row-is-clicked {
   font-weight: bold;
-} */
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+}
+
+/* Colapsar columnas cuando el espacio no es suficiente */
+@media (max-width: 768px) {
+  .demo-table {
+    table-layout: auto; /* Permite que el contenido se ajuste automáticamente */
+  }
+
+  /* Ocultar columnas de la tabla cuando sea necesario */
+  .mat-header-cell, .mat-cell {
+    padding: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Agrega puntos suspensivos cuando el texto es demasiado largo */
+  }
+
+  .mat-header-row {
+    display: block;
+  }
+
+  .mat-mdc-cell {
+    display: block;
+    width: 100%;
+  }
+
+  .mat-mdc-row {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
