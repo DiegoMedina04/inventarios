@@ -1,10 +1,9 @@
 <div>
   <h2>Departamentos List</h2>
+  <p>Departamentos:</p>
   <ul>
-    departamentos:
-
     <li *ngFor="let asignacion of asignaciones">
-      <span>{{ asignacion.equipo.id }} - {{ asignacion.id }}</span>
+      <span> - {{ asignacion.usuario.nombre }}</span>
     </li>
   </ul>
 </div>

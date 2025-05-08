@@ -2,15 +2,15 @@ export class DepartamentoDto {
   id: number;
   nombre: string;
   descripcion: string;
-  created_at: string | null;
-  updated_at: string | null;
+  created_at: Date | null;
+  updated_at: Date | null;
 
   constructor(
     id: number,
     nombre: string,
     descripcion: string,
-    created_at: string | null,
-    updated_at: string | null
+    created_at: Date | null,
+    updated_at: Date | null
   ) {
     this.id = id;
     this.nombre = nombre;

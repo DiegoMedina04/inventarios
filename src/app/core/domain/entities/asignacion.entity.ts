@@ -4,20 +4,20 @@ import { Usuario } from './usuario.entity';
 export class Asignacion {
   id: number;
   usuario: Usuario;
-  equipo: Equipo;
+  equipo: Equipo | null;
   fechaAsignacion: Date | null;
   fechaDevolucion: Date | null;
-  fechaCreacion: Date;
+  fechaCreacion: Date | null;
   fechaModificacion: Date | null;
   estado: boolean | null;
 
   constructor(
     id: number,
     usuario: Usuario,
-    equipo: Equipo,
-    fechaAsignacion: Date,
-    fechaDevolucion: Date,
-    fechaCreacion: Date,
+    equipo: Equipo | null,
+    fechaAsignacion: Date | null,
+    fechaDevolucion: Date | null,
+    fechaCreacion: Date | null,
     fechaModificacion: Date | null,
     estado: boolean | null
   ) {

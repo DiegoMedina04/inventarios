@@ -20,5 +20,6 @@ export class AsignacionComponent implements OnInit {
 
   async loadAsignaciones(): Promise<void> {
     this.asignaciones = await this.asignacionService.getAsignaciones();
+    console.log(this.asignaciones);
   }
 }

@@ -11,11 +11,10 @@ import { MatTableModule } from '@angular/material/table';
   templateUrl: './equipo.component.html',
   styleUrls: ['./equipo.component.css'],
 })
-
 export class EquipoComponent implements OnInit {
   displayedColumns: string[] = [
     'id',
-    'nombre',
+    'ip',
     'marca',
     'modelo',
     'procesador',
@@ -23,7 +22,6 @@ export class EquipoComponent implements OnInit {
     'tipoAlmacenamiento',
     'almacenamiento',
     'sistemaOperativo',
-    
   ];
   // 'serial',
   //   'serialEmpresa',
@@ -32,12 +30,12 @@ export class EquipoComponent implements OnInit {
   //   'ipv4',
   //   'nombreLogico',
   //   'tipoConexion'
-  
+
   equipos: Equipo[] = [];
-  dataSource = this.equipos; 
-  
+  dataSource = this.equipos;
+
   clickedRows = new Set<Equipo>();
-  
+
   constructor(private equipoService: EquipoService) {}
 
   ngOnInit(): void {
@@ -46,6 +44,7 @@ export class EquipoComponent implements OnInit {
 
   async getAllEquipos() {
     const equipos: Equipo[] = await this.equipoService.getAllEquipos();
+    console.log(equipos);
     this.equipos = equipos;
 
     // Aquí se podría definir los datos directamente si no hay servicio

@@ -6,10 +6,10 @@ export class AsignacionDTO {
   id: number;
   user_id: number;
   equipo_id: number;
-  fecha_asignacion: string;
-  fecha_devolucion: string | null;
-  created_at: string | null;
-  updated_at: string | null;
+  fecha_asignacion: Date | null;
+  fecha_devolucion: Date | null;
+  created_at: Date | null;
+  updated_at: Date | null;
   ubicacion_id: number;
   user: UsuarioDTO;
   equipo: EquipoDTO;
@@ -19,10 +19,10 @@ export class AsignacionDTO {
     id: number,
     user_id: number,
     equipo_id: number,
-    fecha_asignacion: string,
-    fecha_devolucion: string | null,
-    created_at: string | null,
-    updated_at: string | null,
+    fecha_asignacion: Date | null,
+    fecha_devolucion: Date | null,
+    created_at: Date | null,
+    updated_at: Date | null,
     ubicacion_id: number,
     user: UsuarioDTO,
     equipo: EquipoDTO,
