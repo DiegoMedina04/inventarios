@@ -1,1 +1,10 @@
-<p>asignacion works!</p>
+<div>
+  <h2>Departamentos List</h2>
+  <ul>
+    departamentos:
+
+    <li *ngFor="let asignacion of asignaciones">
+      <span>{{ asignacion.equipo.id }} - {{ asignacion.id }}</span>
+    </li>
+  </ul>
+</div>

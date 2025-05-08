@@ -1,4 +1,5 @@
 import { Asignacion } from '../../domain/entities/asignacion.entity';
+import { api } from '../http-client.config';
 
 export class AsignacionApi {
   private apiUrl: string;
@@ -8,6 +9,18 @@ export class AsignacionApi {
   }
 
   async getAsignaciones(): Promise<Asignacion[]> {
+    try {
+      const response = await api.get('/asignaciones/index');
+      // console.log({ response });
+      if (response.status != 200) {
+      }
+      response.data.asignaciones.map((e: any) => {
+        // console.log({ e });
+      });
+      // console.log('Datos: ', response.data);
+    } catch (error) {
+      // console.log({ error });
+    }
     return [
       {
         id: 1,
@@ -20,7 +33,7 @@ export class AsignacionApi {
           estado: true,
         },
         equipo: {
-          id: 1,
+          id: 122,
           nombre: 'string',
           marca: 'string',
           modelo: 'string',
@@ -44,5 +57,11 @@ export class AsignacionApi {
         estado: true,
       },
     ];
+  }
+  async createAsignacion(asignacion: Asignacion): Promise<Asignacion | null> {
+    const response = await api.post('/asignacion', asignacion);
+    if (response.status != 200) {
+    }
+    return null;
   }
 }

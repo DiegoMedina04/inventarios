@@ -1,4 +1,3 @@
-// src/app/core/infrastructure/dto/usuario.dto.ts
 export class UsuarioDTO {
   id: number;
   name: string;
