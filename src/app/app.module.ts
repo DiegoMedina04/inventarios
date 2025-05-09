@@ -11,9 +11,10 @@ import { UsuarioModule } from './feature/usuarios/usuario.module';
 import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
 import { HomeComponent } from './feature/home/home/home.component';
 import { SearchbarComponent } from './shared/components/searchbar/searchbar.component';
+import { LoginComponent } from './feature/login/login.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent],
+  declarations: [AppComponent, HomeComponent, LoginComponent],
   imports: [BrowserModule, AppRoutingModule, UsuarioModule, SidebarComponent, SearchbarComponent ],
   providers: [provideClientHydration(withEventReplay())],
   bootstrap: [AppComponent],

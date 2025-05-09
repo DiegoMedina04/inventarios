@@ -1,10 +1,13 @@
 <div class="container" [class.sidebar-hidden]="!sidebarVisible">
-  <div class="sidebar" >
-    <app-sidebar></app-sidebar>
-  </div>
-  <div class="search">
-    <app-searchbar></app-searchbar>
-  </div>
+  <ng-container *ngIf="!isLoginPage">
+    <div class="sidebar">
+      <app-sidebar></app-sidebar>
+    </div>
+    <div class="search">
+      <app-searchbar></app-searchbar>
+    </div>
+  </ng-container>
+
   <div class="outlet">
     <router-outlet></router-outlet>
   </div>

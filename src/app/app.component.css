@@ -1,21 +1,20 @@
 .container {
   display: grid;
-  grid-template-columns: 280px 1fr; /* El sidebar ocupa 280px de ancho y el contenido el resto */
+  grid-template-columns: 280px 1fr;
   grid-template-rows: 3.75rem 1fr;
   grid-template-areas:
     "sidebar search"
     "sidebar outlet";
   height: 100vh;
   padding-top: 0px;
-  transition: grid-template-columns 0.3s ease; /* Transición para el ajuste del grid */
+  transition: grid-template-columns 0.3s ease;
 }
 
 .container.sidebar-hidden {
-  grid-template-columns: 2rem 1fr; /* El sidebar ocupará 2rem cuando se oculte */
+  grid-template-columns: 2rem 1fr;  
   grid-template-areas:
     "sidebar search"
-    "outlet outlet"; /* El sidebar ocupa 2rem, y el contenido se ajusta */
-  transition-delay: 0.3s; /* Retraso de 0.3 segundos en la transición */
+    "outlet outlet";  
 }
 
 .sidebar {
@@ -27,11 +26,11 @@
   align-items: center;
   justify-content: center;
   z-index: 11;
-  transition: width 0.3s ease; /* Transición suave para el ancho */
+  transition: width 0.3s ease; 
 }
 
 .container.sidebar-hidden .sidebar {
-  width: 2rem; /* Ancho mínimo cuando está oculto */
+  width: 2rem;  
 }
 
 .search {
@@ -43,16 +42,16 @@
     rgba(255, 255, 255, 0.368) 100%
   );
   grid-area: search;
-  padding: 10px;
+  padding-top: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 7vh;
-  width: 100vw;
-  position: fixed;
+  width: 100%;
   top: 0;
   left: 0;
   z-index: 10;
+  transition: width 0.3s ease; 
 }
 
 .outlet {
@@ -61,4 +60,5 @@
   padding: 10px;
   align-items: center;
   justify-content: center;
+  transition: all 0.3s ease;  
 }

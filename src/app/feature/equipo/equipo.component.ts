@@ -25,7 +25,7 @@ export class EquipoComponent implements OnInit {
   ];
   // 'serial',
   //   'serialEmpresa',
-  //   'bateria',
+  //   'bateria', 
   //   'mac',
   //   'ipv4',
   //   'nombreLogico',
@@ -43,8 +43,7 @@ export class EquipoComponent implements OnInit {
   }
 
   async getAllEquipos() {
-    const equipos: Equipo[] = await this.equipoService.getAllEquipos();
-    console.log(equipos);
+    const equipos: Equipo[] = [];
     this.equipos = equipos;
 
     // Aquí se podría definir los datos directamente si no hay servicio

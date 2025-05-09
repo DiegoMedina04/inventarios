@@ -7,9 +7,11 @@ import { HomeComponent } from './feature/home/home/home.component';
 import { AsignacionComponent } from './feature/asignacion/asignacion.component';
 import { MantenimientoComponent } from './feature/mantenimiento/mantenimiento.component';
 import { HistorialComponent } from './feature/historial/historial.component';
+import { LoginComponent } from './feature/login/login.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'usuarios', component: UsuariosComponent },
   {
     path: 'equipos',
