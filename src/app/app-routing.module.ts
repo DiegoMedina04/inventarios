@@ -5,6 +5,8 @@ import { EquipoComponent } from './feature/equipo/equipo.component';
 import { DepartamentosComponent } from './feature/departamentos/departamentos.component';
 import { HomeComponent } from './feature/home/home/home.component';
 import { AsignacionComponent } from './feature/asignacion/asignacion.component';
+import { MantenimientoComponent } from './feature/mantenimiento/mantenimiento.component';
+import { HistorialComponent } from './feature/historial/historial.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -20,6 +22,14 @@ const routes: Routes = [
   {
     path: 'asignacion',
     component: AsignacionComponent,
+  },
+  {
+    path: 'mantenimiento',
+    component: MantenimientoComponent,
+  },
+  {
+    path: 'historial',
+    component: HistorialComponent,
   },
 ];
 

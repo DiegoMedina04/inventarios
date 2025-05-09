@@ -1,0 +1,15 @@
+.dashboard-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  h1 {
+    color: #333;
+  }
+  
+  .dashboard-box {
+    border: 1px solid #858585;
+    border-radius: 4px;
+    padding: 15px;
+    margin-top: 10px;
+  }
