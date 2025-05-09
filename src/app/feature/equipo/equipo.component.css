@@ -1,6 +1,6 @@
 :host {
   display: block;
-  width: 96%;
+  width: 100%;
 }
 
 .demo-table {
@@ -33,18 +33,16 @@
   width: 100%;
 }
 
-/* Colapsar columnas cuando el espacio no es suficiente */
 @media (max-width: 768px) {
   .demo-table {
-    table-layout: auto; /* Permite que el contenido se ajuste automáticamente */
+    table-layout: auto;
   }
 
-  /* Ocultar columnas de la tabla cuando sea necesario */
   .mat-header-cell, .mat-cell {
     padding: 8px;
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis; /* Agrega puntos suspensivos cuando el texto es demasiado largo */
+    text-overflow: ellipsis;
   }
 
   .mat-header-row {

@@ -1,15 +1,11 @@
-
-
-<div class="container">
-  <div class="sidebar">
+<div class="container" [class.sidebar-hidden]="!sidebarVisible">
+  <div class="sidebar" >
     <app-sidebar></app-sidebar>
   </div>
   <div class="search">
     <app-searchbar></app-searchbar>
-    <!-- <p>search</p> -->
   </div>
-  
   <div class="outlet">
-    <router-outlet />
+    <router-outlet></router-outlet>
   </div>
 </div>

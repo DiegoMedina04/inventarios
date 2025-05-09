@@ -9,6 +9,16 @@
 .bg-gc { background-color: #26E2B3; }
 .bg-cm { background-color: #FF9B42; }
 
+:host {
+  width: 100%;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.titulo-contenedor{
+    margin-left: 1.2rem;
+}
+
 .titulo-contenedor .titulo{
     font-size: 24px;
     font-weight: 600;
@@ -28,7 +38,7 @@
   }
   .main-contenedor {
     flex: 1;
-    padding: 30px;
+    padding: 1.2rem;
   }
   .contenedor-cards {
     display: flex;
@@ -39,8 +49,8 @@
     background-color: white;
     border-radius: 12px;
     padding: 25px;
-    box-shadow: rgba(0, 0, 0, 0.05);
-    border: 1px solid #dddddd;
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.05);
+    border: 1px solid #f1f1f1;
     transition: all 0.3s ease;
     cursor: pointer;
     display: flex;
