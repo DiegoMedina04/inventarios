@@ -11,10 +11,10 @@
 }
 
 .container.sidebar-hidden {
-  grid-template-columns: 2rem 1fr;  
+  grid-template-columns: 2rem 1fr;
   grid-template-areas:
     "sidebar search"
-    "outlet outlet";  
+    "outlet outlet";
 }
 
 .sidebar {
@@ -26,11 +26,11 @@
   align-items: center;
   justify-content: center;
   z-index: 11;
-  transition: width 0.3s ease; 
+  transition: width 0.3s ease;
 }
 
 .container.sidebar-hidden .sidebar {
-  width: 2rem;  
+  width: 2rem;
 }
 
 .search {
@@ -51,14 +51,24 @@
   top: 0;
   left: 0;
   z-index: 10;
-  transition: width 0.3s ease; 
+  transition: width 0.3s ease;
 }
 
 .outlet {
   background-color: rgb(255, 255, 255);
   grid-area: outlet;
-  padding: 10px;
+
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;  
+  transition: all 0.3s ease;
+}
+.outlet.full-screen {
+  width: 100% !important;
+  height: 100vh;
+}
+
+.container.login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

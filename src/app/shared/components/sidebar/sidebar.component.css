@@ -1,7 +1,7 @@
 .sidebar {
   width: 220px;
   height: 100vh;
-  background: linear-gradient(135deg, rgb(92, 46, 179), #8e44ad);
+  background: linear-gradient(135deg, rgb(212, 48, 26), #aa0000);
   color: white;
   padding: 20px;
   position: fixed;
@@ -15,7 +15,7 @@
 }
 
 .sidebar.hidden {
-  opacity: 0; 
+  opacity: 0;
   transform: translateX(-100%);
 }
 
@@ -44,13 +44,14 @@
 }
 
 .sidebar-menu a:hover {
-  background-color: #2a005634;
+  background-color: #80000034;
   border-radius: 10px;
   padding-left: 10px;
   padding-top: 10px;
   padding-bottom: 10px;
+  font-weight: 600;
 }
-.sidebar-button{
+.sidebar-button {
   color: #474747;
   background-color: transparent;
   border: none;
@@ -61,9 +62,7 @@
   font-size: 1.5rem;
   z-index: 1;
 }
-.sidebar-button:hover{
+.sidebar-button:hover {
   color: #636363;
   filter: drop-shadow(0px 0px 2px #4d305460);
 }
-
-
