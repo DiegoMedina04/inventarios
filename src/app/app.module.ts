@@ -12,11 +12,12 @@ import { SidebarComponent } from './shared/components/sidebar/sidebar.component'
 import { HomeComponent } from './feature/home/home/home.component';
 import { SearchbarComponent } from './shared/components/searchbar/searchbar.component';
 import { LoginComponent } from './feature/login/login.component';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, LoginComponent],
-  imports: [BrowserModule, AppRoutingModule, UsuarioModule, SidebarComponent, SearchbarComponent ],
-  providers: [provideClientHydration(withEventReplay())],
+  declarations: [AppComponent, HomeComponent],
+  imports: [BrowserModule, AppRoutingModule, UsuarioModule, SidebarComponent, SearchbarComponent, LoginComponent ],
+  providers: [provideClientHydration(withEventReplay()), CookieService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

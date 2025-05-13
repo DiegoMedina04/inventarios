@@ -1,6 +1,6 @@
 .container {
   display: grid;
-  grid-template-columns: 280px 1fr;
+  grid-template-columns: 270px 1fr;
   grid-template-rows: 3.75rem 1fr;
   grid-template-areas:
     "sidebar search"

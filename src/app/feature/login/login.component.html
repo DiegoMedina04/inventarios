@@ -9,10 +9,10 @@
       <hr class="linea" />
     </div>
 
-    <form action="">
+    <form (ngSubmit)="login($event)"  #loginForm="ngForm">
       <h3 class="titulo_iniciar_sesion">Iniciar Sesion</h3>
-      <input class="input_email" type="text" placeholder="Usuario" />
-      <input class="input_password" type="password" placeholder="Contraseña" />
+      <input class="input_email" type="text" name="email" placeholder="Usuario" [(ngModel)]="email"/>
+      <input class="input_password" type="password"name="password" placeholder="Contraseña" [(ngModel)]="password"/>
 
       <button type="submit">INICIAR SESION</button>
     </form>

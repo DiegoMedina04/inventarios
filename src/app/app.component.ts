@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';  // Importa Router y ActivatedRoute para manejar la ruta
+import { ActivatedRoute, Router } from '@angular/router';
 import { SidebarService } from './core/services/shared/sidebar.service'; 
 
 @Component({

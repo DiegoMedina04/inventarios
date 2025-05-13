@@ -8,30 +8,47 @@ import { AsignacionComponent } from './feature/asignacion/asignacion.component';
 import { MantenimientoComponent } from './feature/mantenimiento/mantenimiento.component';
 import { HistorialComponent } from './feature/historial/historial.component';
 import { LoginComponent } from './feature/login/login.component';
+import { LoginRedirectGuard } from './core/infraestructure/guards/loginRedirect.guard';
+import { AuthGuard } from './core/infraestructure/guards/auth.guard';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'usuarios', component: UsuariosComponent },
+  { 
+    path: '', 
+    component: HomeComponent,
+    canActivate: [AuthGuard ]
+   },
+  { path: 'login',
+    component: LoginComponent,
+    canActivate: [LoginRedirectGuard]
+  },
+
+  { path: 'usuarios', component: UsuariosComponent,
+    canActivate: [AuthGuard ]
+   },
   {
     path: 'equipos',
     component: EquipoComponent,
+    canActivate: [AuthGuard ]
   },
   {
     path: 'departamento',
     component: DepartamentosComponent,
+    canActivate: [AuthGuard ]
   },
   {
     path: 'asignacion',
     component: AsignacionComponent,
+    canActivate: [AuthGuard ]
   },
   {
     path: 'mantenimiento',
     component: MantenimientoComponent,
+    canActivate: [AuthGuard ]
   },
   {
     path: 'historial',
     component: HistorialComponent,
+    canActivate: [AuthGuard ]
   },
 ];
 

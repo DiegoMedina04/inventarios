@@ -73,6 +73,12 @@ form {
   border: 1px solid rgb(194, 193, 193);
   margin-bottom: 20px;
 }
+.input_email:focus,
+.input_password:focus {
+  border: 1px solid red;
+  outline: none;
+}
+
 .input_email::placeholder,
 .input_password::placeholder {
   color: gray;
@@ -101,4 +107,8 @@ span {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+button:hover{
+  cursor: pointer;
+  scale: 1.1;
 }

@@ -21,9 +21,9 @@
 
 #search:focus {
   margin-left: 10px;
-  outline: 1px solid #510060;
+  outline: 1px solid #b20000;
   transform: scale(1.1);
-  box-shadow: 0 0 8px 2px rgba(50, 39, 176, 0.237);
+  box-shadow: 0 0 8px 2px rgba(173, 24, 24, 0.237);
 }
 
 .search-container {
