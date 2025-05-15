@@ -12,7 +12,7 @@
     </div>
   </ng-container>
 
-  <div class="outlet">
+  <div class="outlet" [ngClass]="{ 'full-screen': isLoginPage }">
     <router-outlet></router-outlet>
   </div>
 </div>

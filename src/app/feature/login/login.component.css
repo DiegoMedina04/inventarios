@@ -10,7 +10,13 @@
 
 .container {
   display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
   gap: 130px;
+  margin: 0 auto;
+  padding: 0 auto;
+  height: 100vh;
 }
 .container_login {
   display: flex;
@@ -18,9 +24,8 @@
   align-items: center;
   justify-content: space-evenly;
   box-shadow: 0px 1px 15px rgba(173, 159, 159, 0.342);
-  height: 20dvh;
+  height: 90dvh;
   border-radius: 2%;
-  padding-top: 2%;
 }
 .nombre_empresa {
   padding-left: 50px;

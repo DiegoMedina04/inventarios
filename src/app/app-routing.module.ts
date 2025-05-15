@@ -18,6 +18,7 @@ const routes: Routes = [
   {
     path: 'equipos',
     component: EquipoComponent,
+    // canActivate: [AuthGuard ]
   },
   {
     path: 'departamento',

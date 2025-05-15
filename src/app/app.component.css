@@ -1,27 +1,35 @@
 .container {
+  --sidebar-width: 270px;
   display: grid;
-  grid-template-columns: 270px 1fr;
+  grid-template-columns: var(--sidebar-width) 1fr;
   grid-template-rows: 3.75rem 1fr;
   grid-template-areas:
-    "sidebar search"
+    "sidebar outlet"
     "sidebar outlet";
   height: 100vh;
-  padding-top: 0px;
+  padding-top: 0;
   transition: grid-template-columns 0.3s ease;
 }
 
 .container.sidebar-hidden {
-  grid-template-columns: 2rem 1fr;
+  --sidebar-width: 2rem;
+  grid-template-columns: var(--sidebar-width) 1fr;
   grid-template-areas:
-    "sidebar search"
-    "outlet outlet";
+    "sidebar outlet"
+    "sidebar outlet";
+}
+
+.container.login {
+  display: block;
+  align-items: center;
+  justify-content: center;
 }
 
 .sidebar {
-  background-color: rgb(255, 255, 255);
+  background-color: transparent;
   grid-area: sidebar;
+  width: var(--sidebar-width);
   padding: 10px;
-  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -29,46 +37,30 @@
   transition: width 0.3s ease;
 }
 
-.container.sidebar-hidden .sidebar {
-  width: 2rem;
-}
-
 .search {
-  background: linear-gradient(
-    to bottom,
-    rgb(255, 255, 255) 0%,
-    rgba(255, 255, 255, 0.97) 80%,
-    rgba(255, 255, 255, 0.815) 90%,
-    rgba(255, 255, 255, 0.368) 100%
-  );
-  grid-area: search;
-  padding-top: 10px;
+  position: fixed;
+  top: 0;
+  left: var(--sidebar-width);
+  width: calc(100% - var(--sidebar-width));
+  height: 3.75rem;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 7vh;
-  width: 100%;
-  top: 0;
-  left: 0;
+  background: white;
   z-index: 10;
-  transition: width 0.3s ease;
+  transition: left 0.3s ease, width 0.3s ease;
 }
 
 .outlet {
-  background-color: rgb(255, 255, 255);
   grid-area: outlet;
-
-  align-items: center;
-  justify-content: center;
+  margin-top: 3.75rem;
+  height: calc(100vh - 3.75rem);
+  overflow-y: auto;
   transition: all 0.3s ease;
 }
 .outlet.full-screen {
-  width: 100% !important;
+  margin-top: 0;
+  width: 100%;
   height: 100vh;
-}
-
-.container.login {
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
