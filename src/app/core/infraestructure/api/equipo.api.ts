@@ -40,7 +40,7 @@ export class EquipoApi {
   }
 
   async update(equipo: Equipo): Promise<Equipo> {
-    const response = await fetch(`http://localhost:3000/equipo/${equipo.ip}`, {
+    const response = await fetch(`http://localhost:3000/equipo/${equipo.antivirusInstalado}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

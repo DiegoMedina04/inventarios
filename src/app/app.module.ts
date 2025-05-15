@@ -21,6 +21,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, FormEquipoComponent],
@@ -37,7 +40,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatPaginatorModule,
     MatSortModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [provideClientHydration(withEventReplay()), CookieService],
   bootstrap: [AppComponent],

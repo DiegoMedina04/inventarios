@@ -1,11 +1,17 @@
 <div>
   <h2>Equipos</h2>
 
-  <!-- Filtro de búsqueda -->
-  <mat-form-field>
-    <mat-label>Filter</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="..." #input>
-  </mat-form-field>
+  <div style="display: flex; justify-content: space-between; align-items: center;">
+    <!-- Filtro de búsqueda -->
+    <mat-form-field>
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="..." #input>
+    </mat-form-field>
+
+    <!-- Botón que lleva a equipoform -->
+    <button mat-raised-button class="btn-agregar" routerLink="/equipoform">	<mat-icon>add_circle</mat-icon>Agregar</button>
+  </div>
+
 
   <!-- Tabla de equipos -->
   <div class="mat-elevation-z8">

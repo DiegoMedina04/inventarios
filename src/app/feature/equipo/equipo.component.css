@@ -39,7 +39,8 @@
     table-layout: auto;
   }
 
-  .mat-header-cell, .mat-cell {
+  .mat-header-cell,
+  .mat-cell {
     padding: 8px;
     white-space: nowrap;
     overflow: hidden;
@@ -62,13 +63,25 @@
     text-overflow: ellipsis;
   }
 }
-.mat-mdc-header-cell{
+.mat-mdc-header-cell {
   border-bottom-color: #a20000f6;
   border-bottom-width: 1px;
   border-bottom-style: solid;
 }
 
-mat-form-field{
-  height: 4.4rem;
+mat-form-field {
+  height: 4.2rem;
   background-color: white;
+}
+.btn-agregar {
+  background-color: #bd0000f6 !important;
+  color: white !important;
+  margin-bottom: 1.2rem;
+  height: 3rem !important;
+}
+.btn-agregar > mat-icon {
+  font-size: 1.5rem !important;
+  height: 1.5rem !important;
+  margin-left: 2px;
+  width: 100% !important;
 }
