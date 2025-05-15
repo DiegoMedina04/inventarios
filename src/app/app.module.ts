@@ -16,6 +16,11 @@ import { CookieService } from 'ngx-cookie-service';
 import { MatIconModule } from '@angular/material/icon';
 import { FormEquipoComponent } from './feature/equipo/form/form.equipo/form.equipo.component';
 import { MatBadgeModule } from '@angular/material/badge';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, FormEquipoComponent],
@@ -28,6 +33,11 @@ import { MatBadgeModule } from '@angular/material/badge';
     LoginComponent,
     MatIconModule,
     MatBadgeModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatInputModule,
+    MatFormFieldModule
   ],
   providers: [provideClientHydration(withEventReplay()), CookieService],
   bootstrap: [AppComponent],

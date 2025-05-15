@@ -4,18 +4,28 @@ import { DepartamentoMapper } from './departamento.mapper';
 
 export class EquipoMapper {
   static toDomain(equipoDto: EquipoDTO): Equipo {
-    const departamentoMapper = DepartamentoMapper.toDomain(equipoDto.ubicacion);
     return new Equipo(
-      equipoDto.id,
-      equipoDto.serial,
       equipoDto.ip,
-      equipoDto.tipo,
       equipoDto.marca,
       equipoDto.modelo,
-      equipoDto.estado,
-      departamentoMapper,
-      equipoDto.created_at,
-      equipoDto.updated_at
+      equipoDto.procesador,
+      equipoDto.memoria,
+      equipoDto.tipoAlmacenamiento,
+      equipoDto.almacenamiento,
+      equipoDto.sistemaOperativo
+    );
+  }
+
+  static toDTO(equipo: Equipo): EquipoDTO {
+    return new EquipoDTO(
+      equipo.ip,
+      equipo.marca,
+      equipo.modelo,
+      equipo.procesador,
+      equipo.memoria,
+      equipo.tipoAlmacenamiento,
+      equipo.almacenamiento,
+      equipo.sistemaOperativo
     );
   }
 }

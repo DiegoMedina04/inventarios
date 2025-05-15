@@ -67,3 +67,8 @@
   border-bottom-width: 1px;
   border-bottom-style: solid;
 }
+
+mat-form-field{
+  height: 4.4rem;
+  background-color: white;
+}

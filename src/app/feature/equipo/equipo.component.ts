@@ -1,19 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { EquipoModule } from './equipo.module';
-import { Equipo } from '../../core/domain/entities/equipo.entity';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
+import { MatSort, MatSortModule} from '@angular/material/sort';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { EquipoService } from '../../core/services/equipo/equipo.service';
-import { MatTableModule } from '@angular/material/table';
+import { Equipo } from '../../core/domain/entities/equipo.entity';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @Component({
   selector: 'app-equipo',
-  imports: [EquipoModule, CommonModule, MatTableModule],
   templateUrl: './equipo.component.html',
   styleUrls: ['./equipo.component.css'],
+  imports: [
+    MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule
+  ]
 })
-export class EquipoComponent implements OnInit {
+export class EquipoComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = [
-    'id',
     'ip',
     'marca',
     'modelo',
@@ -23,18 +26,12 @@ export class EquipoComponent implements OnInit {
     'almacenamiento',
     'sistemaOperativo',
   ];
-  // 'serial',
-  //   'serialEmpresa',
-  //   'bateria', 
-  //   'mac',
-  //   'ipv4',
-  //   'nombreLogico',
-  //   'tipoConexion'
 
   equipos: Equipo[] = [];
-  dataSource = this.equipos;
+  dataSource = new MatTableDataSource<Equipo>(this.equipos);
 
-  clickedRows = new Set<Equipo>();
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
 
   constructor(private equipoService: EquipoService) {}
 
@@ -43,23 +40,78 @@ export class EquipoComponent implements OnInit {
   }
 
   async getAllEquipos() {
-    const equipos: Equipo[] = [];
+    const equipos: Equipo[] = [
+    {
+      ip: '192.168.1.1',
+      marca: 'Dell',
+      modelo: 'XPS 13',
+      procesador: 'Intel Core i7',
+      memoria: '16 GB',
+      tipoAlmacenamiento: 'SSD',
+      almacenamiento: '512 GB',
+      sistemaOperativo: 'Windows 10',
+    },
+    {
+      ip: '192.168.1.2',
+      marca: 'HP',
+      modelo: 'Spectre x360',
+      procesador: 'Intel Core i5',
+      memoria: '8 GB',
+      tipoAlmacenamiento: 'SSD',
+      almacenamiento: '256 GB',
+      sistemaOperativo: 'Windows 10',
+    },
+    {
+      ip: '192.168.1.3',
+      marca: 'Apple',
+      modelo: 'MacBook Air',
+      procesador: 'M1',
+      memoria: '8 GB',
+      tipoAlmacenamiento: 'SSD',
+      almacenamiento: '256 GB',
+      sistemaOperativo: 'macOS Big Sur',
+    },
+    {
+      ip: '192.168.1.4',
+      marca: 'Lenovo',
+      modelo: 'ThinkPad X1 Carbon',
+      procesador: 'Intel Core i5',
+      memoria: '16 GB',
+      tipoAlmacenamiento: 'SSD',
+      almacenamiento: '1 TB',
+      sistemaOperativo: 'Windows 10',
+    },
+    {
+      ip: '192.168.1.5',
+      marca: 'Asus',
+      modelo: 'ZenBook 14',
+      procesador: 'Intel Core i7',
+      memoria: '16 GB',
+      tipoAlmacenamiento: 'SSD',
+      almacenamiento: '512 GB',
+      sistemaOperativo: 'Windows 10',
+    },
+  ];
+
+    // const response = await this.equipoService.getAllEquipos();
+    // response.forEach((equipo: Equipo) => {
+    //   equipos.push(equipo);
+    // });
     this.equipos = equipos;
-
-    // Aquí se podría definir los datos directamente si no hay servicio
-    // this.equipos = [...ELEMENT_DATA]; // Elementos de ejemplo para prueba
-    this.dataSource = this.equipos;
+    this.dataSource.data = this.equipos;
   }
 
-  async createEquipo(equipo: Equipo) {
-    // Implementar la lógica para crear un nuevo equipo
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
 
-  async editEquipo(equipo: Equipo) {
-    // Implementar la lógica para editar un equipo
-  }
-
-  async deleteEquipo(id: number) {
-    // Implementar la lógica para eliminar un equipo
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 }
