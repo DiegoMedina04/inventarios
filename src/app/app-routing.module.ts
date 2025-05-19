@@ -10,11 +10,12 @@ import { HistorialComponent } from './feature/historial/historial.component';
 import { LoginComponent } from './feature/login/login.component';
 import { FormEquipoComponent } from './feature/equipo/form/form.equipo/form.equipo.component';
 import { AuthGuard } from './core/infraestructure/guards/auth.guard';
+import { LoginRedirectGuard } from './core/infraestructure/guards/loginRedirect.guard';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'usuarios', component: UsuariosComponent },
+  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'login', component: LoginComponent, canActivate: [LoginRedirectGuard] },
+  { path: 'usuarios', component: UsuariosComponent, canActivate: [AuthGuard]},
   { path: 'equipoform', component: FormEquipoComponent, canActivate: [AuthGuard] },
   {
     path: 'equipos',

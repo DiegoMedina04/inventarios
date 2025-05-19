@@ -3,7 +3,7 @@ FROM node:22.3.0-alpine3.20 as base
 FROM base as stage-build
 WORKDIR /app
 
-ARG serverUrl=http://10.1.1.216:5000/api
+ARG serverUrl=http://10.1.1.217:5000/api
 ENV serverUrl=${serverUrl}
 
 COPY package.json .
