@@ -1,26 +1,27 @@
+import e from 'express';
 import { EquipoMapper } from '../../application/mapper/equipo.mapper';
 import { Equipo } from '../../domain/entities/equipo.entity';
 import { EquipoDTO } from '../dto/equipoDto';
 import { api } from '../http-client.config';
 
 export class EquipoApi {
-  constructor() {}
+  constructor() { }
   async findAll(): Promise<Equipo[]> {
     try {
-      const {
-        status,
-        data: { equipos },
-      } = await api.get('/equipos/index');
-      if (status != 200) {
-      }
-      return equipos.map((equipoDTO: EquipoDTO) =>
-        EquipoMapper.toDomain(equipoDTO)
+      const pageNumber = 1;
+      const pageSize = 40;
+      const {  status,  data: { data } } = await api.get(
+        `Computer/list?pageNumber=${pageNumber}&pageSize=${pageSize}`
       );
+
+      const equipos=  data.data.map((equipoDTO: EquipoDTO) =>EquipoMapper.toDomain(equipoDTO));
+      console.log({equipos})
+      return equipos;
+      
     } catch (error) {
       console.log({ error });
       return [];
     }
-
   }
 
   async findById(id: number): Promise<Equipo> {
@@ -28,31 +29,24 @@ export class EquipoApi {
     return response.json();
   }
 
-  async create(equipo: Equipo): Promise<Equipo> {
-    const response = await fetch('http://localhost:3000/equipo', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(equipo),
-    });
-    return response.json();
+  async create(equipo: Equipo): Promise<any> {
+
+    const equipoBackend: EquipoDTO= EquipoMapper.toDTO(equipo);
+    console.log(equipoBackend);
+    
+    const response = await api.post('/Computer', equipoBackend);
+    return EquipoMapper.toDomain(response.data.data);
   }
 
   async update(equipo: Equipo): Promise<Equipo> {
-    const response = await fetch(`http://localhost:3000/equipo/${equipo.antivirusInstalado}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(equipo),
-    });
-    return response.json();
+    const equipoBackend: EquipoDTO= EquipoMapper.toDTO(equipo);
+    console.log(equipoBackend);
+    
+    const response = await api.put('/Computer', equipoBackend);
+    return EquipoMapper.toDomain(response.data);
   }
 
   async delete(id: number): Promise<void> {
-    await fetch(`http://localhost:3000/equipo/${id}`, {
-      method: 'DELETE',
-    });
+     await api.post(`/Computer/${id}`);
   }
 }

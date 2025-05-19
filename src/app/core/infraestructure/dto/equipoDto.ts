@@ -52,7 +52,7 @@ export class EquipoDTO {
   networkConfiguration: NetworkConfigurationDto;
   videoCards: VideoCardDto[];
   operatingSystem: string;
-  operatingSystemLicense: boolean;
+  operatingSystemLicense: string;
   antivirusInstalled: boolean;
   charger: boolean;
   ubication: string;
@@ -75,7 +75,7 @@ export class EquipoDTO {
     networkConfiguration: NetworkConfigurationDto,
     videoCards: VideoCardDto[],
     operatingSystem: string,
-    operatingSystemLicense: boolean,
+    operatingSystemLicense: string,
     antivirusInstalled: boolean,
     charger: boolean,
     ubication: string,

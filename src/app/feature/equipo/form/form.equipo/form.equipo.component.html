@@ -1,20 +1,4 @@
 <div class="contenedor_primario">
-  <!-- <div class="stepper">
-    <div class="step completed">
-      <div class="circle">1</div>
-      <span class="label">Paso</span>
-    </div>
-    <div class="line completed"></div>
-    <div class="step active">
-      <div class="circle">2</div>
-      <span class="label">Paso</span>
-    </div>
-    <div class="line"></div>
-    <div class="step">
-      <div class="circle">3</div>
-      <span class="label">Paso</span>
-    </div>
-  </div> -->
   <div class="stepper" style="margin-left: 100px">
     <div class="step" [ngClass]="{ completed: currentStep > 0, active: currentStep === 0 }">
       <div class="circle">1</div>
@@ -35,7 +19,7 @@
   <div class="contedor_principal">
     <section *ngIf="currentStep === 0" class="section" [@fadeIn]>
       <div class="cabecero">
-        <h1 class="titulo">Tipo de dispositivo</h1>
+        <h3 class="titulo">Tipo de dispositivo</h3>
         <div class="cards">
           <div *ngFor="let equipo of equipos">
             <div [ngClass]="{
@@ -51,7 +35,7 @@
                     {{ equipo.iconoPrincipal }}
                   </mat-icon>
                 </div>
-                <h1>{{ equipo.nombre }}</h1>
+                <h3>{{ equipo.nombre }}</h3>
               </div>
               <div [ngClass]="{
                   icono: true,
@@ -67,7 +51,7 @@
       </div>
       <form (ngSubmit)="crearEquipo($event)" #equipoForm="ngForm">
         <div class="informacion_general">
-          <h1 class="titulo">Informacion general</h1>
+          <h3 class="titulo">Informacion general</h3>
           <div class="formulario1">
             <div class="contenedor_pregunta">
               <label for="">Marca&Modelo</label>
@@ -98,82 +82,119 @@
               <input name="formulario.licenciaSistemaOperativo" [(ngModel)]="formulario.licenciaSistemaOperativo"
                 type="text" />
             </div>
+            <!-- <div class="contenedor_pregunta">
+              <div class="switch_lincencia">
+                  <h3>Licencia</h3>
+                <label class="switch">
+                  <input
+                  name="formulario.licenciaSistemaOperativo"
+                  [(ngModel)]="formulario.licenciaSistemaOperativo"
+                  type="checkbox" />
+                  <span class="slider round"></span>
+                </label>
+              
+              </div>
+            </div> -->
           </div>
           <!-- fin formulario 1 -->
         </div>
         <div class="especificaciones">
-          <div class="especificaciones_tecnicas">
-            <h1 class="titulo">Especificaciones Tecnicas</h1>
-            <div class="formulario2">
-              <div class="contenedor_pregunta">
-                <label for="">Procesador</label>
-                <input name="formulario.procesador" [(ngModel)]="formulario.procesador" type="text" />
-              </div>
-              <div class="contenedor_pregunta">
-                <label for="">Velocidad del procesador</label>
-                <input name="formulario.velocidadCpu" [(ngModel)]="formulario.velocidadCpu" type="text" />
-              </div>
-              <div class="contenedor_pregunta">
-                <label for="">Nucleos</label>
-                <input type="text" />
+          <h3 class="tituloSinPadding">Especificaciones Tecnicas</h3>
+          <div class="espec">
+            <div class="especificaciones_tecnicas">
+              <div class="formulario2">
+                <div class="contenedor_pregunta">
+                  <label for="">Procesador</label>
+                  <input name="formulario.procesador" [(ngModel)]="formulario.procesador" type="text" />
+                </div>
+                <div class="contenedor_pregunta">
+                  <label for="">Velocidad del procesador</label>
+                  <input name="formulario.velocidadCpu" [(ngModel)]="formulario.velocidadCpu" type="text" />
+                </div>
               </div>
             </div>
-            <div class="formulario2_parte2">
-              <div class="contenedor_pregunta2">
-                <label for="">Tipo </label>
-                <input name="formulario.discos[0].tipoTecnologiaDisco"
-                  [(ngModel)]="formulario.discos[0].tipoTecnologiaDisco" type="text" />
-              </div>
-              <div class="contenedor_pregunta2">
-                <label for="">Capacidad</label>
-                <input name="formulario.discos[0].capacidadGb" [(ngModel)]="formulario.discos[0].capacidadGb"
-                  type="text" />
-              </div>
-              <div class="contenedor_pregunta2">
-                <label for="">Marca</label>
-                <input name="formulario.discos[0].marca" [(ngModel)]="formulario.discos[0].marca" type="text" />
-              </div>
-              <div class="contenedor_pregunta2">
-                <label for="">Estado</label>
-                <input name="formulario.discos[0].estado" [(ngModel)]="formulario.discos[0].estado" type="text" />
-              </div>
-              <div class="contenedor_pregunta2">
-                <label for="">Modelo</label>
-                <input name="formulario.discos[0].modelo" [(ngModel)]="formulario.discos[0].modelo" type="text" />
-              </div>
-              <div class="contenedor_pregunta2">
-                <label for="">Horas de uso</label>
-                <input name="formulario.discos[0].horasUso" [(ngModel)]="formulario.discos[0].horasUso" type="text" />
-              </div>
-            </div>
-          </div>
-          <button class="boton_agregar">
-            <mat-icon aria-hidden="false"> add </mat-icon>
-            Agregar
-          </button>
-          <div class="seccion_ram">
-            <div class="especificaciones_ram">
-              <div class="contenedor_pregunta">
-                <label for="">Capacidad</label>
-                <input name="formulario.modulosRam[0].capacidadGb" [(ngModel)]="formulario.modulosRam[0].capacidadGb"
-                  type="text" />
-              </div>
+            <!-- Inicio almacenamiento -->
+            <h4>Almacenamiento</h4>
+            <div class="seccion_disc" *ngFor="let discp of formulario.discos; let i = index">
               <div class="contenedor_pregunta">
                 <label for="">Tipo</label>
-                <input type="text" />
+                <input name="formulario.discos[{{ i }}].tipoTecnologiaDisco" [(ngModel)]="discp.tipoTecnologiaDisco"
+                  type="text" />
               </div>
+
               <div class="contenedor_pregunta">
-                <label for="">Valocidad MHz</label>
-                <input type="text" />
+                <label for="">Capacidad</label>
+                <input name="formulario.discos[{{ i }}].capacidadGb" [(ngModel)]="discp.capacidadGb" type="number" />
+              </div>
+
+              <div class="contenedor_pregunta">
+                <label for="">Marca</label>
+                <input name="formulario.discos[{{ i }}].marca" [(ngModel)]="discp.marca" type="text" />
+              </div>
+
+              <div class="contenedor_pregunta">
+                <label for="">Estado</label>
+                <input name="formulario.discos[{{ i }}].estado" [(ngModel)]="discp.estado" type="text" />
+              </div>
+
+              <div class="contenedor_pregunta">
+                <label for="">Modelo</label>
+                <input name="formulario.discos[{{ i }}].modelo" [(ngModel)]="discp.modelo" type="text" />
+              </div>
+
+              <div class="contenedor_pregunta">
+                <label for="">Horas de uso</label>
+                <input name="formulario.discos[{{ i }}].horasUso" [(ngModel)]="discp.horasUso" type="number" />
+              </div>
+
+              <div class="delete_list">
+                <button mat-icon-button class="btn_delete" (click)="eliminarDisco(i)">
+                  <mat-icon>delete_forever</mat-icon>
+                </button>
               </div>
             </div>
-            <button class="boton_ram" type="submit">
-              dsds
+
+            <button type="button" class="boton_agregar" (click)="agregarDisco()">
               <mat-icon aria-hidden="false"> add </mat-icon>
               Agregar
             </button>
+
+            <!-- Fin almacenamiento -->
+            <h4>Memoria</h4>
+
+            <div class="seccion_ram" *ngFor="let rams of formulario.modulosRam; let i = index">
+              <div class="contenedor_pregunta">
+                <label for="">Capacidad</label>
+                <input name="formulario.modulosRam[{{ i }}].capacidadGb" [(ngModel)]="rams.capacidadGb" type="number" />
+              </div>
+
+              <div class="contenedor_pregunta">
+                <label for="">Tipo</label>
+                <input type="text" name="formulario.modulosRam[{{ i }}].tipoMemoriaRam"
+                  [(ngModel)]="rams.tipoMemoriaRam" />
+              </div>
+
+              <div class="contenedor_pregunta">
+                <label for="">Velocidad MHz</label>
+                <input type="number" min="1" name="formulario.modulosRam[{{ i }}].velocidadMHz"
+                  [(ngModel)]="rams.velocidadMHz" />
+              </div>
+
+              <div class="delete_list">
+                <button mat-icon-button class="btn_delete" (click)="eliminarRam(i)">
+                  <mat-icon>delete_forever</mat-icon>
+                </button>
+              </div>
+            </div>
+
+            <button class="boton_ram" type="button" (click)="agregarRam()">
+              <mat-icon aria-hidden="false">add</mat-icon>
+              Agregar
+            </button>
+
           </div>
         </div>
+
         <div class="estado">
           <label class="switch">
             <input type="checkbox" />
@@ -181,10 +202,18 @@
           </label>
           <h3>Estado</h3>
         </div>
+        <div class="guardar">
+
+          <button type="submit" class="btn_guardar">Guardar pc</button>
+        </div>
       </form>
     </section>
-    <section *ngIf="currentStep === 1" class="section" [@fadeIn]>section 2</section>
-    <section *ngIf="currentStep === 2" class="section" [@fadeIn]>section 3</section>
+    <section *ngIf="currentStep === 1" class="section" [@fadeIn]>
+      section 2
+    </section>
+    <section *ngIf="currentStep === 2" class="section" [@fadeIn]>
+      section 3
+    </section>
   </div>
   <!-- Botones flecha -->
   <button mat-icon-button class="arrow-button left" (click)="navigateBack()">

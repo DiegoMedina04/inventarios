@@ -19,7 +19,7 @@ import {
 import { DepartamentoMapper } from './departamento.mapper';
 
 export class EquipoMapper {
-  static toDomain(dto: EquipoDTO): Equipo {
+   static toDomain(dto: EquipoDTO): Equipo {
     const diskMappeados = this.mapperDiskDomain(dto);
     const ramMappeados = this.mapperRamDomain(dto.ramModules);
     const perifericosMappeados = this.mapperPerifericosDomain(dto.peripherals);
@@ -38,8 +38,10 @@ export class EquipoMapper {
       dto.cpuSpeed,
       dto.computerStatus,
       dto.computerName,
-      diskMappeados,
-      ramMappeados,
+      diskMappeados.discMap,
+      diskMappeados.totalDisc,
+      ramMappeados.ramMap,
+      ramMappeados.totalRam,
       perifericosMappeados,
       configuracionRedMappeada,
       videoCardsMappeadas,
@@ -54,7 +56,7 @@ export class EquipoMapper {
     );
   }
 
-  static toDTO(domain: Equipo): EquipoDTO {
+   static toDTO(domain: Equipo): EquipoDTO {
     return new EquipoDTO(
       domain.tipoComputador,
       domain.marcaModelo,
@@ -80,24 +82,34 @@ export class EquipoMapper {
     );
   }
 
-  static mapperDiskDomain(dto: EquipoDTO): DiscoDto[] {
-    return dto.disks.map((disk) => ({
-      marca: disk.brand,
+   private static mapperDiskDomain(dto: EquipoDTO): {discMap: DiscoDto[], totalDisc: number} {
+    let totalDisc = 0;
+    console.log(dto);
+    const discMap = dto.disks.map((disk) => {
+      totalDisc += disk.capacityGb
+
+      return {marca: disk.brand,
       modelo: disk.model,
       tipoTecnologiaDisco: disk.diskTechnologyType,
       capacidadGb: disk.capacityGb,
       estado: disk.status,
-      horasUso: disk.usageHours,
-    }));
+      horasUso: disk.usageHours,}
+    });
+
+    return ({discMap, totalDisc})
   }
-  static mapperRamDomain(rams: RamModuleDto[]): ModuloRamDto[] {
-    return rams.map((ram) => ({
-      capacidadGb: ram.capacityGb,
+  private static mapperRamDomain(rams: RamModuleDto[]): { ramMap: ModuloRamDto[], totalRam: number } {
+    let totalRam = 0;
+    const ramMap =  rams.map((ram) => {
+      totalRam += ram.capacityGb
+      return {capacidadGb: ram.capacityGb,
       tipoMemoriaRam: ram.memoryRamType,
-      velocidadMHz: ram.speedMHz,
-    }));
+      velocidadMHz: ram.speedMHz,}
+
+    });
+    return ({ramMap, totalRam})
   }
-  static mapperPerifericosDomain(perifericos: PeripheralDto[]): PerifericoDto[] {
+  private static mapperPerifericosDomain(perifericos: PeripheralDto[]): PerifericoDto[] {
     return perifericos.map((periferico) => ({
       nombre: periferico.name,
       serial: periferico.serial,
@@ -108,14 +120,14 @@ export class EquipoMapper {
     }));
   }
 
-  static mapperSoftwareDomain(
+  private static mapperSoftwareDomain(
     softwares: SoftwareInstalledDto[]
   ): SoftwareInstaladoDto[] {
     return softwares.map((software) => ({
       nombre: software.name,
     }));
   }
-  static mapperConfiguracionRedDomain(
+  private static mapperConfiguracionRedDomain(
     configuracionRed: NetworkConfigurationDto
   ): ConfiguracionRedDto {
     return {
@@ -124,7 +136,7 @@ export class EquipoMapper {
       ipv4: configuracionRed.ipv4,
     };
   }
-  static mapperVideoCardsDomain(videoCards: VideoCardDto[]): TarjetaVideoDto[] {
+  private static mapperVideoCardsDomain(videoCards: VideoCardDto[]): TarjetaVideoDto[] {
     return videoCards.map((videoCard) => ({
       esIntegrada: videoCard.isIntegrated,
       nombre: videoCard.name,
@@ -133,7 +145,7 @@ export class EquipoMapper {
 
 //Domain to DTO
 
-  static mapperDiscoDto(discos: DiscoDto[]): DiskDto[] {
+  private static mapperDiscoDto(discos: DiscoDto[]): DiskDto[] {
     return discos.map((disco) => ({
       brand: disco.marca,
       model: disco.modelo,
@@ -144,7 +156,7 @@ export class EquipoMapper {
     }));
   }
 
-  static mapperRamDto(rams: ModuloRamDto[]): RamModuleDto[] {
+  private static mapperRamDto(rams: ModuloRamDto[]): RamModuleDto[] {
     return rams.map((ram) => ({
       capacityGb: ram.capacidadGb,
       memoryRamType: ram.tipoMemoriaRam,
@@ -152,7 +164,7 @@ export class EquipoMapper {
     }));
   }
 
-  static mapperPerifericosDto(
+  private static mapperPerifericosDto(
     perifericos: PerifericoDto[]
   ): PeripheralDto[] {
     return perifericos.map((p) => ({
@@ -165,7 +177,7 @@ export class EquipoMapper {
     }));
   }
 
-  static mapperSoftwareDto(
+  private static mapperSoftwareDto(
     softwares: SoftwareInstaladoDto[]
   ): SoftwareInstalledDto[] {
     return softwares.map((s) => ({
@@ -173,7 +185,7 @@ export class EquipoMapper {
     }));
   }
 
-  static mapperConfiguracionRedDto(
+  private static mapperConfiguracionRedDto(
     config: ConfiguracionRedDto
   ): NetworkConfigurationDto {
     return {
@@ -183,7 +195,7 @@ export class EquipoMapper {
     };
   }
 
-  static mapperVideoCardsDto(videoCards: TarjetaVideoDto[]): VideoCardDto[] {
+  private static mapperVideoCardsDto(videoCards: TarjetaVideoDto[]): VideoCardDto[] {
     return videoCards.map((v) => ({
       isIntegrated: v.esIntegrada,
       name: v.nombre,

@@ -9,6 +9,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { RouterLink } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import * as EquipoUseCase from '../../core/useCases/equipo.useCase';
 
 @Component({
   selector: 'app-equipo',
@@ -27,13 +28,12 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class EquipoComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = [
-    'ip',
-    'marca',
-    'modelo',
+    "codigo",
+    'nombreComputador',
+    'marcaModelo',
     'procesador',
-    'memoria',
-    'tipoAlmacenamiento',
-    'almacenamiento',
+    'totalRam',
+    'totalDiscos',
     'sistemaOperativo',
   ];
 
@@ -51,7 +51,10 @@ export class EquipoComponent implements OnInit, AfterViewInit {
 
   async getAllEquipos() {
     const equipos: Equipo[] = [];
-
+    const equiposResponse = await EquipoUseCase.getAllEquipos();
+    equiposResponse.forEach((equipo) => {
+      equipos.push(equipo);
+    });
     this.equipos = equipos;
     this.dataSource.data = this.equipos;
   }

@@ -9,3 +9,9 @@ body {
 
 html, body { height: 100%; }
 
+:root {
+  --rojo-principal: rgb(212, 48, 26);
+  --rojo-secundario: #aa0000;
+  --gris: #474747;
+  
+}

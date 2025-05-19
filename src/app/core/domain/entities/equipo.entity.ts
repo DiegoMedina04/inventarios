@@ -11,6 +11,7 @@ export interface ModuloRamDto {
   capacidadGb: number;
   tipoMemoriaRam: string;
   velocidadMHz: number;
+  // totalCapacidad: number
 }
 
 export interface PerifericoDto {
@@ -47,12 +48,14 @@ export class Equipo {
   estadoComputador: string;
   nombreComputador: string;
   discos: DiscoDto[];
+  totalDiscos?: number;
   modulosRam: ModuloRamDto[];
+  totalRam?: number| null;
   perifericos: PerifericoDto[];
   configuracionRed: ConfiguracionRedDto;
   tarjetasVideo: TarjetaVideoDto[];
   sistemaOperativo: string;
-  licenciaSistemaOperativo: boolean;
+  licenciaSistemaOperativo: string;
   antivirusInstalado: boolean;
   cargador: boolean;
   ubicacion: string;
@@ -69,12 +72,14 @@ export class Equipo {
     estadoComputador: string,
     nombreComputador: string,
     discos: DiscoDto[],
+    totalDiscos: number,
     modulosRam: ModuloRamDto[],
+    totalRam: number| null,
     perifericos: PerifericoDto[],
     configuracionRed: ConfiguracionRedDto,
     tarjetasVideo: TarjetaVideoDto[],
     sistemaOperativo: string,
-    licenciaSistemaOperativo: boolean,
+    licenciaSistemaOperativo: string,
     antivirusInstalado: boolean,
     cargador: boolean,
     ubicacion: string,
@@ -91,7 +96,9 @@ export class Equipo {
     this.estadoComputador = estadoComputador;
     this.nombreComputador = nombreComputador;
     this.discos = discos;
+    this.totalDiscos = totalDiscos;
     this.modulosRam = modulosRam;
+    this.totalRam = totalRam;
     this.perifericos = perifericos;
     this.configuracionRed = configuracionRed;
     this.tarjetasVideo = tarjetasVideo;

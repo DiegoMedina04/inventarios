@@ -7,6 +7,14 @@ import {
   TarjetaVideoDto,
 } from '../../../../core/domain/entities/equipo.entity';
 
+
+export enum TipoComputador {
+  PC = 'PC',
+  LAPTOP = 'LAPTOP',
+  ALLINONE = 'ALLINONE',
+  OTHERS = 'SERVIDOR',
+
+}
 export class EquipoFormulario {
   tipoComputador: string = '';
   marcaModelo: string = '';
@@ -24,7 +32,7 @@ export class EquipoFormulario {
       estado: '',
       modelo: '',
       horasUso: 0,
-    },
+    }
   ];
   modulosRam: ModuloRamDto[] = [
     {
@@ -55,11 +63,15 @@ export class EquipoFormulario {
     },
   ];
   sistemaOperativo: string = '';
-  licenciaSistemaOperativo: boolean = false;
+  licenciaSistemaOperativo: string = '';
   antivirusInstalado: boolean = false;
   cargador: boolean = false;
   ubicacion: string = '';
   nombreAntivirus: string = '';
   fallasDetectadas: string = '';
-  softwaresInstalados: SoftwareInstaladoDto[] = [];
+  softwaresInstalados: SoftwareInstaladoDto[] = [
+    {
+      nombre:"windows10"
+    }
+  ];
 }

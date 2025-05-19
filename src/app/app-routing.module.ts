@@ -9,32 +9,37 @@ import { MantenimientoComponent } from './feature/mantenimiento/mantenimiento.co
 import { HistorialComponent } from './feature/historial/historial.component';
 import { LoginComponent } from './feature/login/login.component';
 import { FormEquipoComponent } from './feature/equipo/form/form.equipo/form.equipo.component';
+import { AuthGuard } from './core/infraestructure/guards/auth.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'usuarios', component: UsuariosComponent },
-  { path: 'equipoform', component: FormEquipoComponent },
+  { path: 'equipoform', component: FormEquipoComponent, canActivate: [AuthGuard] },
   {
     path: 'equipos',
     component: EquipoComponent,
-    // canActivate: [AuthGuard ]
+    canActivate: [AuthGuard ]
   },
   {
     path: 'departamento',
     component: DepartamentosComponent,
+    canActivate: [AuthGuard ]
   },
   {
     path: 'asignacion',
     component: AsignacionComponent,
+    canActivate: [AuthGuard ]
   },
   {
     path: 'mantenimiento',
     component: MantenimientoComponent,
+    canActivate: [AuthGuard ]
   },
   {
     path: 'historial',
     component: HistorialComponent,
+    canActivate: [AuthGuard ]
   },
 ];
 

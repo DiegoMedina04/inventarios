@@ -69,16 +69,22 @@
   flex-direction: column;
   justify-content: center;
   align-items: start;
-  margin-left: 30px;
   border: 1px solid rgba(128, 128, 128, 0.11);
   box-shadow: 1px 2px 10px 2px rgba(87, 0, 0, 0.094);
   border-radius: 10px;
-  /* width: 100%; */
 }
 .titulo {
-  margin-left: 70px;
-  font-size: 20px;
+  padding: 0.6rem;
+  margin: 0px;
   color: #585858;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.315);
+}
+.tituloSinPadding {
+  padding: 0.6rem 0 0.6rem 0.6rem;
+  margin: 0px;
+  width: 99%;
+  color: #585858;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.315);
 }
 .cards {
   display: flex;
@@ -135,34 +141,32 @@
 }
 
 .selected_icon {
-  color: red;
+  color: var(--rojo-principal);
 }
 
 .informacion_general {
   display: flex;
   flex-direction: column;
   margin-top: 20px;
-  margin-left: 30px;
   border: 1px solid rgba(128, 128, 128, 0.11);
   box-shadow: 1px 2px 10px 2px rgba(87, 0, 0, 0.094);
-  padding: 20px 20px;
   border-radius: 10px;
 }
 .especificaciones {
+  margin-top: 20px;
+  border: 1px solid rgba(128, 128, 128, 0.11);
+  box-shadow: 1px 2px 10px 2px rgba(87, 0, 0, 0.094);
+  border-radius: 10px;
+
+}
+.espec {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 20px;
-  margin-left: 30px;
-  border: 1px solid rgba(128, 128, 128, 0.11);
-  box-shadow: 1px 2px 10px 2px rgba(87, 0, 0, 0.094);
-
-  border-radius: 10px;
-  margin-bottom: 40px;
+  padding: 1rem;
 }
-
 .especificaciones_tecnicas {
-  width: 97%;
+  width: 100%;
 }
 
 .contenedor_pregunta,
@@ -178,39 +182,31 @@ input {
   border: 1px solid rgba(170, 170, 170, 0.164);
   box-shadow: 1px 2px 5px 2px rgba(158, 158, 158, 0.094);
 }
-.formulario1,
-.formulario2 {
-  border-top: 1px solid rgba(128, 128, 128, 0.315);
+.formulario1 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  padding-top: 1rem;
+  padding: 1rem;
+}
+.switch_lincencia{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.formulario2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
 }
 
 .contenedor_pregunta {
   display: flex;
   flex-direction: column;
 }
-.contenedor_pregunta2 {
-  font-weight: bold;
-  padding-left: 5px;
-  display: flex;
-  flex-direction: column;
-}
-.formulario2_parte2 {
-  display: grid;
-  grid-template-columns: repeat(6, minmax(10px, 1fr));
 
-  gap: 1px;
-  padding-top: 2rem;
-}
-
-.formulario2_parte2 input {
-  width: 70%;
-}
 .boton_agregar,
 .boton_ram {
-  background: red;
+  background: var(--rojo-principal);
   color: white;
   border-radius: 10px;
   border: rgba(128, 128, 128, 0.212);
@@ -221,17 +217,26 @@ input {
   margin-top: 20px;
 }
 .seccion_ram {
-  margin: 20px 0px 20px 0px;
-  display: flex;
-  flex-direction: column;
+  display: grid;
   align-items: center;
+  grid-template-columns: repeat(3, 1fr) auto;
+  gap: 0.8rem;
+  padding-top: 1rem;
   width: 100%;
 }
-.especificaciones_ram {
-  width: 97%;
+.seccion_disc {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-
+  align-items: center;
+  grid-template-columns: repeat(6, minmax(5rem, 1fr)) auto;
+  gap: 0.8rem;
+  padding-top: 1rem;
+  width: 100%;
+   box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
+  overflow: hidden;
+}
+.especificaciones_ram {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr) auto;
   gap: 1px;
   padding-top: 1rem;
 }
@@ -281,7 +286,7 @@ input {
 }
 
 input:checked + .slider {
-  background-color: red;
+  background-color: var(--rojo-principal);
 }
 
 input:checked + .slider:before {
@@ -305,7 +310,7 @@ input:checked + .slider:before {
   bottom: 20px;
   padding: 10px;
   border: none;
-  background-color: red;
+  background-color: var(--rojo-principal);
   color: white;
   border-radius: 10px;
   box-shadow: 0 0 8px 4px rgba(0, 0, 0, 0.075);
@@ -331,4 +336,52 @@ button.mat-icon-button {
 
 .arrow-button.left {
   margin-right: 10px;
+}
+
+.delete_list {
+  display: flex;
+  height: 60%;
+  padding-top: 50%;
+
+}
+.delete_list button{
+    background-color: var(--rojo-principal);
+  color: white;
+  border: 1px solid rgba(70, 70, 70, 0.1);
+  border-radius: 10px;
+}
+.delete_list button:hover{
+  transform: scale(1.1);
+  transition: all 0.3s ease;
+}
+
+h4{
+  color: #585858;
+  margin-bottom: 0px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.315);
+
+}
+
+.btn_guardar{
+  background-color: var(--rojo-principal);
+  color: white;
+  border: 1px solid rgba(70, 70, 70, 0.1);
+  border-radius: 10px;
+  height: 2.5rem;
+  font-size: medium;
+
+}
+
+.btn_guardar:hover{
+  transform: scale(1.1);
+  transition: all 0.3s ease;
+}
+
+.guardar{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0;
 }

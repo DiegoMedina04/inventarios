@@ -23,7 +23,8 @@ export class AuthService {
     };
 
     if(respuesta?.code==200){
-      this.cookieService.set('token', respuesta?.data.token);
+      const expiracion = new Date(new Date().getTime() + 30 * 60 * 1000);
+      this.cookieService.set('token', respuesta?.data.token, expiracion);
       this.authSignal.login(usuarioLogueado);
       this.router.navigate(['/']);
 
